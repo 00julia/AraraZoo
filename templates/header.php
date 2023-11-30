@@ -18,18 +18,20 @@
     <link rel="stylesheet" href="<?= $BASE_URL ?>css/style.css">
 </head>
 <body>
-    <header>
-        <table>
-            <a href="<?= $BASE_URL ?>index.php"><img src="imgs/logo.jpg" class="logo"></a>
-                <div class="login">   
-                <a href=#>Entrar</a>
-                <a href=#>Criar Conta</a>
-            </div>
-        </table>
-    </header>
-    <div class="nav">
-        <a href="#">AraraZOO Hotel</a>
-        <a href="#">Nossos Animais</a>
-        <a href="#">Nosso Projeto</a>
-        <a href="#">Contato</a>
+    <div class="fixo">
+        <header>
+            <table>
+                <a href="<?= $BASE_URL ?>index.php"><img src="imgs/logo.jpg" class="logo"></a>
+                    <div class="login">   
+                    <a href=#>Entrar</a>
+                    <a href=#>Criar Conta</a>
+                    </div>
+            </table>
+        </header>
+        <div class="nav">
+            <a href="#">AraraZOO Hotel</a>
+            <a href="#">Nossos Animais</a>
+            <a href="#">Nosso Projeto</a>
+            <a href="#">Contato</a>
+        </div>
     </div>
