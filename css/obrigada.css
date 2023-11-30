@@ -6,6 +6,6 @@
 }
 
 .imgNP {
-    max-width: 100%; /* garante que a imagem não seja maior que o container */
+    max-width: 100%; 
     height: auto; /* mantém a proporção da imagem */
 }
