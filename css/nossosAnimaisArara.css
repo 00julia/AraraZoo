@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* define a altura do container como 100% da altura da tela */
+}
+
+.img1NA {
+    max-width: 35%; /* garante que a imagem não seja maior que 50% do container */
+    height: auto; /* mantém a proporção da imagem */
+    margin-top: -300px
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* define a altura do container como 100% da altura da tela */
+}
+
+.img2NA {
+    max-width: 20%; /* garante que a imagem não seja maior que 50% do container */
+    height: auto; /* mantém a proporção da imagem */
+    margin-top: -1250px;
+}
+
+.container3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img3NA {
+    height: auto;
+    width: 60%; /* ajusta a largura da imagem */
+    margin-top: -870px;
+}
+
+.container4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* define a altura do container como 100% da altura da tela */
+}
+
+.img4NA {
+    max-width: 20%; /* garante que a imagem não seja maior que 50% do container */
+    height: auto; /* mantém a proporção da imagem */
+    margin-top: -450px;
+}
