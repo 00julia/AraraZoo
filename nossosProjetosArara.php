@@ -1,10 +1,8 @@
 <?php
-// include_once("AraraZoo/imagens/nosoprojeto.jpg"); 
+include_once("templaites/Header.php"); 
 ?>
-<html>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
+
 
 <img src="imagens/nossoprojeto.jpg" class="imgNP">
 
