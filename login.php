@@ -1,7 +1,8 @@
 <?php
     include_once("templates/header.php"); 
 ?>
-</head>
+<link rel="stylesheet" href="css/login.css">
+
 <body>
     <div class="login-container">
         <h2></h2>
