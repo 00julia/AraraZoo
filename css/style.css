@@ -7,7 +7,7 @@
 /* header e navbar  */
 header {
     display: flex;
-    
+    margin-bottom: 10px;
 }
 .login {
     display: flex;
@@ -33,9 +33,10 @@ header {
     
 }
 .logo {
-    width: 100px;
+    width: 120px;
     margin-left: 70px;
     margin-bottom: 0;
+    margin-top: 15px;
 }
 .nav {
     width: 100%;
