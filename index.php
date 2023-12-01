@@ -29,3 +29,14 @@
     <img src="imgs/tucanosobre.jpg" class="teste">
   </div>
 </div>
+<br><br><br>
+<div class="ingressos">
+  <img src="imgs/ingressos.jpg" class="ingressosimg">
+</div>
+<div class="container2">
+  <div class="ingressosfoto">
+    <img src="imgs/5.jpg" class="ingressosfotos">
+    <img src="imgs/6.jpg" class="ingressosfotos">
+    <img src="imgs/7.jpg" class="ingressosfotos">
+  </div>
+</div>
