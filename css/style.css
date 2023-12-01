@@ -115,5 +115,19 @@ header {
     display: flex;
     margin: auto;
     font-size: 24px;
+    text-align: justify;
+}
+.animaispulantes {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    margin-top: 25px;
+}
+.teste {
+    transition: .35s;
+    cursor: pointer;
+}
+.animaispulantes:hover > :not(:hover) {
+    opacity: 1;
+    transform: scale(0.9);
 }
