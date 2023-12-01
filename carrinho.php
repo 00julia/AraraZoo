@@ -8,8 +8,51 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/carrinho.css">
+<link rel="stylesheet" href="css/carrinhojs.css">
 </head>
 <body>
+<section class="container normal-section">
+<br>
+<br>
+
+<div class="titulo">
+  <h1>Carrinho de Compras</h1>
+</div>
+    <ul id="listaItens">
+        <!-- Lista de itens do carrinho será preenchida dinamicamente -->
+    </ul>
+
+    <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
+    <p>Total: R$ <span id="total">0.00</span></p>
+
+    <script>
+        function carregarCarrinho() {
+            const listaItens = document.getElementById('listaItens');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            let subtotal = 0;
+
+            // Limpa a lista de itens
+            listaItens.innerHTML = '';
+
+            // Atualiza a lista de itens do carrinho
+            carrinho.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+                listaItens.appendChild(listItem);
+                subtotal += item.preco;
+            });
+
+            // Atualiza subtotal e total
+            subtotalElement.textContent = subtotal.toFixed(2);
+            totalElement.textContent = subtotal.toFixed(2);
+        }
+
+        // Chama a função para carregar o carrinho quando a página carregar
+        window.onload = carregarCarrinho;
+    </script>
 
 <body>
 
