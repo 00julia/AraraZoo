@@ -21,3 +21,17 @@ include_once("templates/header.php");
 <img src="imgs/resgatados.jpg" class="img4NA">
 </div>
 
+
+<div class="margin-wrapper">
+<div class="container">
+    <div class="left-content">
+        <img src="sua-imagem.jpg" alt="Imagem na esquerda">
+    </div>
+    <div class="right-content">
+        <h1>Araras</h1>
+        <p>Nosso ambiente das araras conta com mais de 10 aves resgatadas de tráfico de animais e/ou machucadas que não conseguem mais ser reecolocadas na natureza.</p>
+    </div>
+</div>
+</div>
+
+

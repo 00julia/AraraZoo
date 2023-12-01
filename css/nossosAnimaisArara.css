@@ -1,3 +1,7 @@
+body{
+    font-family: 'Jura', sans-serif;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -46,3 +50,40 @@
     height: auto; /* mantém a proporção da imagem */
     margin-top: -450px;
 }
+
+
+.margin-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #BFCFF9;
+    padding: 20px;
+    margin: 10px;
+    width: 70%;
+    /* height: 60%; */
+    /* margin-top: -450px; */
+}
+
+.left-content {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.left-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+}
+
+.right-content h1 {
+    margin-bottom: 10px;
+}
+
