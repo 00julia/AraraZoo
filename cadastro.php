@@ -10,7 +10,7 @@
         <h2></h2>
         <form action="/login" method="post">
         <div class="imagem">
-    <img src="cadastre-se.png" width="320" text-align ="center"; alig height="205" />
+    <img src="imgs/cadastre-se.png" width="320" text-align ="center"; alig height="205" />
 </div>
         <div class="login-nome">
             <input type="text" name="username" placeholder="NOME:" required>
