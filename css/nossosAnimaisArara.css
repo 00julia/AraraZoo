@@ -46,3 +46,20 @@
     height: auto; /* mantém a proporção da imagem */
     margin-top: -450px;
 }
+
+.container5{
+    background-color: black;
+}
+.img5NA {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.arara1 {
+    margin-top: 10px;
+}
+
+.arara2 {
+    margin-top: 5px;
+}
