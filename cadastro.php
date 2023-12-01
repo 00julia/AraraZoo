@@ -27,17 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Complemento: $complemento<br>";
 }
 ?>
-<link rel="stylesheet" href="cadastro.css">
 
-<html>
-<head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/cadastro.css">
-</head>
 
-<body>
 
 <div class="imagem">
     <center> <img src="imgs/cadastre-se.png" width="450px" /> </center>
