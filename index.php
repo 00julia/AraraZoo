@@ -70,9 +70,9 @@
 
     <script>
         const produtos = [
-            { id: 1, nome: 'Produto 1', preco: 25.00 },
-            { id: 2, nome: 'Produto 2', preco: 15.00 },
-            { id: 3, nome: 'Produto 3', preco: 30.00 }
+            { id: 1, nome: 'ingresso inteiro', preco: 90.00 },
+            { id: 2, nome: 'ingresso 2', preco: 15.00 },
+            { id: 3, nome: 'ingresso estudante', preco: 45.00 }
         ];
 
         window.onload = function() {
