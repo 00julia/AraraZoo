@@ -11,44 +11,81 @@
 <br>
 
 <div class="titulo">
-  <h1>Carrinho de Compras</h1>
-</div>
-    <ul id="listaItens">
-        <!-- Lista de itens do carrinho será preenchida dinamicamente -->
-    </ul>
-
-    <p>Subtotal: R$ <span id="subtotal">0.00</span></p>
-    <p>Total: R$ <span id="total">0.00</span></p>
+<title>Carrinho de Compras</title>
+    <style>
+        .produto {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .produto p {
+            margin: 0;
+        }
+        .adicionar-carrinho, .remover-carrinho {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .esvaziar-carrinho {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carrinho de Compras</h1>
+    <div id="carrinho">
+        <!-- O carrinho será preenchido dinamicamente -->
+    </div>
+    <button class="esvaziar-carrinho" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
 
     <script>
+        window.onload = function() {
+            carregarCarrinho();
+        };
+
         function carregarCarrinho() {
-            const listaItens = document.getElementById('listaItens');
-            const subtotalElement = document.getElementById('subtotal');
-            const totalElement = document.getElementById('total');
+            const container = document.getElementById('carrinho');
+            container.innerHTML = '';
 
             let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            let subtotal = 0;
 
-            // Limpa a lista de itens
-            listaItens.innerHTML = '';
-
-            // Atualiza a lista de itens do carrinho
-            carrinho.forEach((item, index) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-                listaItens.appendChild(listItem);
-                subtotal += item.preco;
-            });
-
-            // Atualiza subtotal e total
-            subtotalElement.textContent = subtotal.toFixed(2);
-            totalElement.textContent = subtotal.toFixed(2);
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p>Carrinho vazio</p>';
+            } else {
+                carrinho.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.classList.add('produto');
+                    div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+                                     <button class="remover-carrinho" onclick="removerProduto(${index})">Remover do Carrinho</button>`;
+                    container.appendChild(div);
+                });
+            }
         }
 
-        // Chama a função para carregar o carrinho quando a página carregar
-        window.onload = carregarCarrinho;
-    </script>
+        function esvaziarCarrinho() {
+            localStorage.removeItem('carrinho');
+            carregarCarrinho();
+            alert('Carrinho esvaziado!');
+        }
 
+        function removerProduto(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            
+            if (index >= 0 && index < carrinho.length) {
+                carrinho.splice(index, 1);
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                carregarCarrinho();
+                alert('Produto removido do carrinho!');
+            }
+        }
+    </script>
 <body>
 
 <?php
