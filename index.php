@@ -38,5 +38,69 @@
     <img src="imgs/5.jpg" class="ingressosfotos">
     <img src="imgs/6.jpg" class="ingressosfotos">
     <img src="imgs/7.jpg" class="ingressosfotos">
+
+    <title>Produtos</title>
+    <style>
+        .produto {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .produto p {
+            margin: 0;
+        }
+        .adicionar-carrinho {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Produtos</h1>
+    <div id="produtos">
+        <!-- Os produtos serão preenchidos dinamicamente -->
+    </div>
+
+    <script>
+        const produtos = [
+            { id: 1, nome: 'ingresso inteiro', preco: 90.00 },
+            { id: 2, nome: 'ingresso 2', preco: 15.00 },
+            { id: 3, nome: 'ingresso estudante', preco: 45.00 }
+        ];
+
+        window.onload = function() {
+            const container = document.getElementById('produtos');
+
+            produtos.forEach(produto => {
+                const div = document.createElement('div');
+                div.classList.add('produto');
+                div.innerHTML = `<p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
+                                 <button class="adicionar-carrinho" onclick="adicionarProduto(${produto.id})">Adicionar ao Carrinho</button>`;
+                container.appendChild(div);
+            });
+        };
+
+        function adicionarProduto(id) {
+            const produtoSelecionado = produtos.find(produto => produto.id === id);
+
+            const item = {
+                nome: produtoSelecionado.nome,
+                preco: produtoSelecionado.preco
+            };
+
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push(item);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            alert('Produto adicionado ao carrinho!');
+        }
+    </script>
   </div>
 </div>

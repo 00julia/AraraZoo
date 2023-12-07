@@ -3,9 +3,74 @@
 ?>
 
 <link rel="stylesheet" href="css/carrinho.css">
+<link rel="stylesheet" href="css/carrinhojs.css">
 </head>
 <body>
+<section class="container normal-section">
+<br>
+<br>
 
+<div class="titulo">
+<title>Carrinho de Compras</title>
+    <style>
+        /* Estilos CSS permanecem os mesmos */
+        /* ... */
+    </style>
+</head>
+<body>
+    <h1>Carrinho de Compras</h1>
+    <div id="carrinho">
+        <!-- O carrinho será preenchido dinamicamente -->
+    </div>
+    <p>Total: R$ <span id="total">0.00</span></p>
+    <button class="esvaziar-carrinho" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
+
+    <script>
+        window.onload = function() {
+            carregarCarrinho();
+        };
+
+        function carregarCarrinho() {
+            const container = document.getElementById('carrinho');
+            container.innerHTML = '';
+
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            let total = 0;
+
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p>Carrinho vazio</p>';
+            } else {
+                carrinho.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.classList.add('produto');
+                    div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+                                     <button class="remover-carrinho" onclick="removerProduto(${index})">Remover do Carrinho</button>`;
+                    container.appendChild(div);
+                    total += item.preco;
+                });
+            }
+
+            const totalElement = document.getElementById('total');
+            totalElement.textContent = total.toFixed(2);
+        }
+
+        function esvaziarCarrinho() {
+            localStorage.removeItem('carrinho');
+            carregarCarrinho();
+            alert('Carrinho esvaziado!');
+        }
+
+        function removerProduto(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            
+            if (index >= 0 && index < carrinho.length) {
+                carrinho.splice(index, 1);
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                carregarCarrinho();
+                alert('Produto removido do carrinho!');
+            }
+        }
+    </script>
 <body>
 
 <?php
