@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
     <!-- CSS  -->
     <link rel="stylesheet" href="<?= $BASE_URL ?>css/style.css">
+
 </head>
 <body>
     <div class="fixo">

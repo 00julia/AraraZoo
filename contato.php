@@ -1,9 +1,7 @@
 <?php
   include_once("templates/header.php");
 ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/contato.css">
 
 <body>
