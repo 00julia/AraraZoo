@@ -23,10 +23,12 @@
 <br>
 <div class="container">
   <div class="animaispulantes">
+  
     <img src="imgs/ararasobre.jpg" class="teste">
     <img src="imgs/tigresobre.jpg" class="teste">
     <img src="imgs/girafasobre.jpg" class="teste">
     <img src="imgs/tucanosobre.jpg" class="teste">
+  
   </div>
 </div>
 <br><br><br>
@@ -40,3 +42,4 @@
     <img src="imgs/7.jpg" class="ingressosfotos">
   </div>
 </div>
+<br><br><br><br>
