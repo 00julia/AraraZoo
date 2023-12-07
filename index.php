@@ -35,11 +35,16 @@
 </div>
 <div class="container2">
   <div class="ingressosfoto">
+  <button class="imagem-botao1" onclick="acaoDoBotao()">
     <img src="imgs/5.jpg" class="ingressosfotos">
+  </button>
+    <button class="imagem-botao2" onclick="acaoDoBotao()">
     <img src="imgs/6.jpg" class="ingressosfotos">
+    </button>
+    <button class="imagem-botao3" onclick="acaoDoBotao()">
     <img src="imgs/7.jpg" class="ingressosfotos">
-
-    <title>Produtos</title>
+    </button>
+    <title></title>
     <style>
         .produto {
             border: 1px solid #ccc;
@@ -59,21 +64,51 @@
             border: none;
             padding: 5px 10px;
             cursor: pointer;
+            display: inline-block;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Produtos</h1>
+
+    <h1></h1>
     <div id="produtos">
         <!-- Os produtos serão preenchidos dinamicamente -->
     </div>
 
+    <style>
+        /* Estilos para o botão */
+        .adicionar-carrinho {
+            position: absolute;
+            top: 2300px;
+            left: 350px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .adicionar-carrinho1{
+            position: absolute;
+            top: 2300px;
+            left: 970px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <!-- Botões "Adicionar ao Carrinho" fora da tag <script> -->
+    <button class="adicionar-carrinho" onclick="adicionarProduto('ingresso inteiro', 90.00)">Adicionar Ingresso Inteiro ao Carrinho</button>
+
+    <button class="adicionar-carrinho1" onclick="adicionarProduto('ingresso estudante', 45.00)">Adicionar Ingresso Estudante ao Carrinho</button>
+
     <script>
-        const produtos = [
-            { id: 1, nome: 'ingresso inteiro', preco: 90.00 },
-            { id: 2, nome: 'ingresso 2', preco: 15.00 },
-            { id: 3, nome: 'ingresso estudante', preco: 45.00 }
-        ];
+  
 
         window.onload = function() {
             const container = document.getElementById('produtos');
@@ -82,17 +117,15 @@
                 const div = document.createElement('div');
                 div.classList.add('produto');
                 div.innerHTML = `<p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
-                                 <button class="adicionar-carrinho" onclick="adicionarProduto(${produto.id})">Adicionar ao Carrinho</button>`;
+                                 <button class="adicionar-carrinho" onclick="adicionarProduto('${produto.nome}', ${produto.preco})">Adicionar ao Carrinho</button>`;
                 container.appendChild(div);
             });
         };
 
-        function adicionarProduto(id) {
-            const produtoSelecionado = produtos.find(produto => produto.id === id);
-
+        function adicionarProduto(nome, preco) {
             const item = {
-                nome: produtoSelecionado.nome,
-                preco: produtoSelecionado.preco
+                nome: nome,
+                preco: preco
             };
 
             let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
