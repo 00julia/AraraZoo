@@ -23,15 +23,15 @@ include_once("templates/header.php");
     }
 
     .login-container button {
-        width: 40%;
+        width: 200%;
         padding: 10px;
         border-radius: 45px;
-        background-color: #2E57C0;
+        background-color: blue;
         border: none;
-        border-radius: 45px;
         cursor: pointer;
+
     }
-    
+
 
     .notification is-danger{
         background: red;
