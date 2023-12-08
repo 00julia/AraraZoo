@@ -24,8 +24,8 @@
             <table>
                 <a href="<?= $BASE_URL ?>index.php"><img src="imgs/logo.jpg" class="logo"></a>
                     <div class="login">   
-                    <a href=#>Entrar</a>
-                    <a href=#>Criar Conta</a>
+                    <a href="<?= $BASE_URL ?>login.php">Entrar</a>
+                    <a href="<?= $BASE_URL ?>cadastro.php">Criar Conta</a>
                     </div>
             </table>
         </header>
