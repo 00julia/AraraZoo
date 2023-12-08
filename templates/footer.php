@@ -26,11 +26,12 @@
     color: white;
     display: flex;
     justify-content: space-around;
-    padding: -3%;
+    padding: -20;
     width: 100%;
     position: static; 
     bottom: 0;
     margin: -8;
+    height: 180px;
 
 
         
