@@ -31,6 +31,7 @@ include_once("templates/header.php");
         border-radius: 45px;
         cursor: pointer;
     }
+    
 
     .notification is-danger{
         background: red;
@@ -43,12 +44,7 @@ include_once("templates/header.php");
  justify-content: center;
 }
 
-.login-container button{
-    align-items: center;
-    display: flex;
- align-items: center;
- justify-content: center;
-}
+
 
 </style>
 
