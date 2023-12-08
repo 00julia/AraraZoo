@@ -5,49 +5,7 @@ session_start();
 <?php
 include_once("templates/header.php"); 
 ?>
-<style>
-    .login-container {
-        width: 300px;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 45px;
-    }
-
-    .login-container input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 45px;
-        background-color: #BFCFF9;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
-
-    .login-container button {
-        width: 100%;
-        padding: 10px;
-        border-radius: 45px;
-        background-color: blue;
-        color: blue;
-        border: none;
-        cursor: pointer;
-
-    }
-
-
-    .notification is-danger{
-        background: red;
-    }
-
-.link-wrapper{
-    align-items: center;
-    display: flex;
- align-items: center;
- justify-content: center;
-}
-
-
-
-</style>
+<link rel="stylesheet" href="css/login.css">
 
 
 
@@ -68,7 +26,7 @@ include_once("templates/header.php");
             </div>
 
             <div class="link-wrapper">
-        <a href="cadastro.php">Cadastrar</a>
+        <a href="cadastro.php">Cadastrar-se AQUI</a>
          </div>
 
          <br> <br>
@@ -80,9 +38,10 @@ include_once("templates/header.php");
     </div>
 
 
-    <button type="submit" class="login-container button">Entrar</button>
+    <button type="submit" class="buttonLog">Entrar</button>
     </form>
     </div>
+    <br><br><br><br>
 
     <?php
   include_once("templates/footer.php");
