@@ -82,8 +82,8 @@
         /* Estilos para o botão */
         .adicionar-carrinho {
             position: absolute;
-            top: 2065px;
-            left: 350px;
+            top: 1890px;
+            left: 190px;
             height: 290px;
             width:260px;
             background-color: transparent;
@@ -95,8 +95,8 @@
 
         .adicionar-carrinho1{
             position: absolute;
-            top: 2065px;
-            left: 970px;
+            top: 1890px;
+            left: 820px;
             height: 290px;
             width:260px;
             background-color: transparent;
@@ -143,6 +143,7 @@
     </script>
   </div>
 </div>
+
 
 <?php
   include_once("templates/footer.php");
