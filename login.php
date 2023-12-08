@@ -1,26 +1,29 @@
 <?php
-    include_once("templates/header.php"); 
-?>
+session_start();
+include('conexao.php');
 
-<link rel="stylesheet" href="css/login.css">
-<div class="login-container">
-        <!-- <h2></h2> -->
-        <form action="/login" method="post">
-        <div class="imagem">
-    <img src="imgs/login.png" width="320" text-align=center; alig height="205" />
-</div>
-            <div class="link-wrapper">
-            <a href="#">Cadastre-se</a>
-            </div>
-            <br>
-            <input type="text" name="username" placeholder="digite seu email..." required>
-            <br>
-            <input type="password" name="password" placeholder="digite sua senha..." required>
-            <br>
-            <button type="submit">ENTRAR</button>
-        </form>
-    </div>
+if (empty($_POST['email']) || empty($_POST['senha'])) {
+    header('Location: l0gin1.php');
+    exit();
+}
 
-    <?php
-  include_once("templates/footer.php");
+$email = mysqli_real_escape_string($conexao, $_POST['email']);
+$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+
+$query = "SELECT nome FROM usuario WHERE email = '{$email}' AND senha = MD5('{$senha}')";
+
+$result = mysqli_query($conexao, $query);
+
+$row = mysqli_num_rows($result);
+
+if ($row == 1) {
+    $usuario_bd = mysqli_fetch_assoc($result);
+    $_SESSION['nome'] = $usuario_bd['nome'];
+    header('Location: painel.php');
+    exit();
+} else {
+    $_SESSION['nao_autenticado'] = true;
+    header('Location: l0gin1.php');
+    exit();
+}
 ?>

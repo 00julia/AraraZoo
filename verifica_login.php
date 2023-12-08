@@ -1,6 +1,6 @@
 <?php
 session_start();
 if(!$_SESSION['nome']) {
-	header('Location: index.php');
+	header('Location: l0gin1.php');
 	exit();
 }
