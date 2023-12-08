@@ -30,9 +30,9 @@
             </table>
         </header>
         <div class="nav">
-            <a href="agende.php">AraraZOO Hotel</a>
-            <a href="nossosAnimaisArara.php">Nossos Animais</a>
-            <a href="nossosProjetosArara.php">Nosso Projeto</a>
-            <a href="contato.php">Contato</a>
+            <a href="#">AraraZOO Hotel</a>
+            <a href="#">Nossos Animais</a>
+            <a href="#">Nosso Projeto</a>
+            <a href="#">Contato</a>
         </div>
     </div>

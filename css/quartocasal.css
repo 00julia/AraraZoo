@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.quartocasalfoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fotodoquarto {
+    border-radius: 25px;
+    width: 700px;
+    box-shadow: 2px 5px 5px black;
+}
+.fotodoprecodoquarto {
+    border-radius: 25px;
+    width: 700px;
+    margin-top: 20px;
+}
