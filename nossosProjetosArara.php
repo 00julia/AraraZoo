@@ -11,3 +11,7 @@ include_once("templates/header.php");
 
 </html>
 
+<?php
+  include_once("templates/footer.php");
+?>
+
