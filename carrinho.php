@@ -108,7 +108,6 @@ $cardValidPlaceholder = '12/23';
        <input type="text" name="card_code" id="cardCodeInput" class="forms1"><br>
     </div>
   </div>
-</form>
 
 <?php
 
@@ -122,8 +121,10 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
   <div class="card-valid">Validade: <?php echo $cardValidPlaceholder; ?></div>
 </div>
 
-<button type="button">Finalizar Compra</button>
+<!-- <button type="button" href="obrigadaArara">Finalizar Compra</button> -->
 
+<button type="button" onclick="location.href='obrigadaArara.php'">Finalizar Compra</button>
+</form>
 <br> <br>
 
  
@@ -163,7 +164,7 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
         cardBrandImage.src = 'imgs/elo.png'; 
         break;
       default:
-        cardBrandImage.src = 'visa.png'; 
+        cardBrandImage.src = 'imgs/visa.png'; 
     }
     // Defina o tamanho da imagem
     cardBrandImage.style.width = '100px';
