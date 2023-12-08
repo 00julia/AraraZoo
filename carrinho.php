@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="css/carrinhojs.css">
 </head>
 <body>
-<section class="container normal-section">
 <br>
 <br>
 
