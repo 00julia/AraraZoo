@@ -23,7 +23,7 @@ include_once("templates/header.php");
     }
 
     .login-container button {
-        width: 200%;
+        width: 100%;
         padding: 10px;
         border-radius: 45px;
         background-color: blue;
