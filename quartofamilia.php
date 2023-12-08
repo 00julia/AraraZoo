@@ -12,5 +12,5 @@
 </div>
 
 <div>
-    <img src="imgs/quartofamilia.jpg" class="">
+    <img src="imgs/quartofamilia.jpg" class="imgcama">
 </div>
