@@ -96,14 +96,14 @@
     justify-content: center;
 
 }
-.back-video {
+.back-vide0 {
     height: auto;
     width: 100%;
     z-index: 6;
     margin-top: -75px;
     position: relative;
-    opacity: 1;
-    filter: brightness(0.25) opacity(1);
+    opacity: 0.9;
+    filter: brightness(0.25) opacity(0.75);
     
 }
 .logosemfundo {

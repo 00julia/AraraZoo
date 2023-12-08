@@ -9,8 +9,8 @@
   <img src="imgs/logosemfundo.png" class="logosemfundo">
 </div> -->
 <div class="planodefundo">
-  <img src="imgs/logosemfundo.png" class="logosemfundo">
-  <video autoplay loop muted plays-inline class="back-video">
+  <img src="imgs/ararazoobranca.png" class="logosemfundo">
+  <video autoplay loop muted plays-inline class="back-vide0">
     <source src="imgs/videoarara.mp4" type="video/mp4">
   </video>
 </div>
