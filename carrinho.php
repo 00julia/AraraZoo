@@ -125,6 +125,8 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
 
 <button type="button">Finalizar Compra</button>
 
+<br> <br>
+
  
 <script>
   
@@ -189,8 +191,7 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
   updateCard();
 </script>
 
-</body>
-</html>
+
 
 <?php
   include_once("templates/footer.php");
