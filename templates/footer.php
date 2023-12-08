@@ -19,17 +19,22 @@
       <p>Curitiba, PR Av. Pedro Euzébio Lemos</p>
     </div>
 </footer>
+
 <style>
     .azul-footer {
     background-color: #3D73FF;
     color: white;
     display: flex;
     justify-content: space-around;
-    padding: -3%;
+    padding: -20;
     width: 100%;
-    position: absolute;
+    position: static; 
     bottom: 0;
     margin: -8;
+    height: 180px;
+
+
+        
    }
    
    .coluna {

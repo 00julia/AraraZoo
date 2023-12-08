@@ -7,3 +7,7 @@ include_once("templates/header.php");
 <div class="container">
 <img src="imgs/obrigado.jpg" class="imgO">
 </div>
+
+<?php
+  include_once("templates/footer.php");
+?>

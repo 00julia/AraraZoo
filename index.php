@@ -82,9 +82,11 @@
         /* Estilos para o botão */
         .adicionar-carrinho {
             position: absolute;
-            top: 2300px;
+            top: 2065px;
             left: 350px;
-            background-color: #007bff;
+            height: 290px;
+            width:260px;
+            background-color: transparent;
             color: #fff;
             border: none;
             padding: 5px 10px;
@@ -93,9 +95,11 @@
 
         .adicionar-carrinho1{
             position: absolute;
-            top: 2300px;
+            top: 2065px;
             left: 970px;
-            background-color: #007bff;
+            height: 290px;
+            width:260px;
+            background-color: transparent;
             color: #fff;
             border: none;
             padding: 5px 10px;
@@ -105,9 +109,9 @@
     </style>
 
     <!-- Botões "Adicionar ao Carrinho" fora da tag <script> -->
-    <button class="adicionar-carrinho" onclick="adicionarProduto('ingresso inteiro', 90.00)">Adicionar Ingresso Inteiro ao Carrinho</button>
+    <button class="adicionar-carrinho" onclick="adicionarProduto('ingresso inteiro', 90.00)"></button>
 
-    <button class="adicionar-carrinho1" onclick="adicionarProduto('ingresso estudante', 45.00)">Adicionar Ingresso Estudante ao Carrinho</button>
+    <button class="adicionar-carrinho1" onclick="adicionarProduto('ingresso estudante', 45.00)"></button>
 
     <script>
   
@@ -139,3 +143,7 @@
     </script>
   </div>
 </div>
+
+<?php
+  include_once("templates/footer.php");
+?>
