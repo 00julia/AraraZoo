@@ -191,3 +191,7 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
 
 </body>
 </html>
+
+<?php
+  include_once("templates/footer.php");
+?>
