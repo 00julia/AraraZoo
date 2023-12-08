@@ -3,15 +3,10 @@
 ?>
 
 <link rel="stylesheet" href="css/quartofamilia.css">
-<br>
-<br>
-<br>
-<br>
 <div class="quartofamilia">
   <div class="quartofamiliafoto">
-    <img src="imgs/4.jpg"  width="550px">> 
+    <img src="imgs/4.jpg"  width="550px">
   </div>
-</div>
 <div class="quartofamiliafoto">
         <img src="imgs/quartofamilia.jpg" class="fotodoquarto">
     </div>
