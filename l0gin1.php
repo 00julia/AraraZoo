@@ -2,18 +2,9 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistema de Login - PHP + MySQL - Canal TI</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/bulma.min.css" />
-    <link rel="stylesheet" type="text/css" href="login.css">
-</head>
+<?php
+include_once("templates/header.php"); 
+?>
 <style>
     .login-container {
         width: 300px;
@@ -40,9 +31,27 @@ session_start();
         border-radius: 45px;
         cursor: pointer;
     }
+
+    .notification is-danger{
+        background: red;
+    }
+
+.link-wrapper{
+    align-items: center;
+    display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.login-container button{
+    align-items: center;
+    display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
 </style>
 
-<body>
 
 
     <?php
@@ -61,19 +70,23 @@ session_start();
                 <img src="imgs/login.png" width="320" text-align=center; alig height="205" />
             </div>
 
+            <div class="link-wrapper">
+        <a href="cadastro.php">Cadastrar</a>
+         </div>
+
+         <br> <br>
+
             <input name="email" class="login-container input" placeholder="Seu e-mail" autofocus="">
             <br>
             <input name="senha" class="login-container input" type="password" placeholder="Sua senha">
     </div>
     </div>
 
-    <div class="link-wrapper">
-        <a href="cadastro.php">Cadastrar</a>
-    </div>
+
     <button type="submit" class="login-container button">Entrar</button>
     </form>
     </div>
 
-</body>
-
-</html>
+    <?php
+  include_once("templates/footer.php");
+?>
