@@ -27,6 +27,7 @@ include_once("templates/header.php");
         padding: 10px;
         border-radius: 45px;
         background-color: blue;
+        color: blue;
         border: none;
         cursor: pointer;
 
