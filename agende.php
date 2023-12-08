@@ -14,20 +14,20 @@
 <div class="body">
     <div class="card">
         <div class="img-box">
-        <a href="<?= $BASE_URL ?>index.php"><img src="imgs/quartocasal.jpg"></a>
+        <a href="<?= $BASE_URL ?>quartocasal.php"><img src="imgs/quartocasal.jpg"></a>
         </div>
         <div class="content">
-        <a href="<?= $BASE_URL ?>index.php"><img src="imgs/preçoquartocasal.png" width="525px"></a>
+        <a href="<?= $BASE_URL ?>quartocasal.php"><img src="imgs/preçoquartocasal.png" width="525px"></a>
         </div>
     </div>
 </div>
 <div class="body">
     <div class="card">
         <div class="img-box">
-        <a href="<?= $BASE_URL ?>index.php"><img src="imgs/quartofamilia.jpg"></a>
+        <a href="<?= $BASE_URL ?>quartofamilia.php"><img src="imgs/quartofamilia.jpg"></a>
         </div>
         <div class="content">
-        <a href="<?= $BASE_URL ?>index.php"><img src="imgs/preçoquartofamilia.png" width="525px"></a>
+        <a href="<?= $BASE_URL ?>quartofamilia.php"><img src="imgs/preçoquartofamilia.png" width="525px"></a>
         </div>
     </div>
 </div>

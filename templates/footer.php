@@ -21,6 +21,11 @@
 </footer>
 
 <style>
+    * {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
     .azul-footer {
     background-color: #3D73FF;
     color: white;
@@ -32,9 +37,6 @@
     bottom: 0;
     margin: -8;
     height: 180px;
-
-
-        
    }
    
    .coluna {
