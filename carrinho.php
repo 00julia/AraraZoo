@@ -25,50 +25,56 @@
     <button class="esvaziar-carrinho" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
 
     <script>
-        window.onload = function() {
-            carregarCarrinho();
-        };
+      window.onload = function() {
+      carregarCarrinho();
+    };
 
-        function carregarCarrinho() {
-            const container = document.getElementById('carrinho');
-            container.innerHTML = '';
+    function carregarCarrinho() {
+      const container = document.getElementById('carrinho');
+      container.innerHTML = '';
 
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            let total = 0;
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      let total = 0;
 
-            if (carrinho.length === 0) {
-                container.innerHTML = '<p>Carrinho vazio</p>';
-            } else {
-                carrinho.forEach((item, index) => {
-                    const div = document.createElement('div');
-                    div.classList.add('produto');
-                    div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
-                                     <button class="remover-carrinho" onclick="removerProduto(${index})">Remover do Carrinho</button>`;
-                    container.appendChild(div);
-                    total += item.preco;
-                });
-            }
+      if (carrinho.length === 0) {
+        container.innerHTML = '<p>Carrinho vazio</p>';
+      } else {
+        carrinho.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.classList.add('produto');
+          div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+                            <button class="remover-carrinho" onclick="removerProduto(${index})">Remover do Carrinho</button>`;
+          container.appendChild(div);
+          total += item.preco;
+        });
+      }
 
-            const totalElement = document.getElementById('total');
-            totalElement.textContent = total.toFixed(2);
-        }
+      const totalElement = document.getElementById('total');
+      totalElement.textContent = total.toFixed(2);
+    }
 
-        function esvaziarCarrinho() {
-            localStorage.removeItem('carrinho');
-            carregarCarrinho();
-            alert('Carrinho esvaziado!');
-        }
+    function esvaziarCarrinho() {
+      localStorage.removeItem('carrinho');
+      carregarCarrinho();
+      alert('Carrinho esvaziado!');
+    }
 
-        function removerProduto(index) {
-            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            
-            if (index >= 0 && index < carrinho.length) {
-                carrinho.splice(index, 1);
-                localStorage.setItem('carrinho', JSON.stringify(carrinho));
-                carregarCarrinho();
-                alert('Produto removido do carrinho!');
-            }
-        }
+    function removerProduto(index) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      
+      if (index >= 0 && index < carrinho.length) {
+        carrinho.splice(index, 1);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        carregarCarrinho();
+        alert('Produto removido do carrinho!');
+      }
+    }
+
+    function finalizarCompra() {
+      localStorage.removeItem('carrinho'); // Limpa o carrinho removendo o item 'carrinho' do localStorage
+      carregarCarrinho(); // Atualiza a exibição do carrinho para refletir a remoção dos itens
+      alert('Compra finalizada!');
+    }
     </script>
 <body>
 
@@ -123,7 +129,8 @@ $cardBrand = getCardBrand($cardNumberPlaceholder);
 
 <!-- <button type="button" href="obrigadaArara">Finalizar Compra</button> -->
 
-<button type="button" onclick="location.href='obrigadaArara.php'">Finalizar Compra</button>
+<button type="button" onclick="finalizarCompra(); location.href='obrigadaArara.php'">Finalizar Compra</button>
+  </form>
 </form>
 <br> <br>
 
