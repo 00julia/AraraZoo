@@ -1,4 +1,6 @@
-<?php include_once("templates/header.php"); ?>
+<?php
+  include_once("templates/header.php");
+?>
 
 <link rel="stylesheet" href="css/carrinho.css">
 <link rel="stylesheet" href="css/carrinhojs.css">
@@ -8,7 +10,7 @@
 <br>
 
 <div class="titulo">
-    <title>Carrinho de Compras</title>
+<title>Carrinho de Compras</title>
     <style>
         /* Estilos CSS permanecem os mesmos */
         /* ... */
@@ -16,30 +18,29 @@
 </head>
 <body>
 
-<h1>Carrinho de Compras</h1>
-<div id="carrinho">
-    <!-- O carrinho será preenchido dinamicamente -->
-</div>
-<p>Total: R$ <span id="total">0.00</span></p>
-<button class="esvaziar-carrinho" onclick="esvaziarCarrinho(); limparReserva()">Esvaziar Carrinho</button>
-<?php
-// Processamento dos valores do formulário
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $valorReserva = $_POST["valorReserva"];
-    $numeroDias = $_POST["numeroDias"];
+    <h1>Carrinho de Compras</h1>
+    <div id="carrinho">
+        <!-- O carrinho será preenchido dinamicamente -->
+    </div>
+    <p>Total: R$ <span id="total">0.00</span></p>
+    <button class="esvaziar-carrinho" onclick="esvaziarCarrinho();limparReserva()">Esvaziar Carrinho</button>
+    <?php
+            // Processamento dos valores do formulário
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $valorReserva = $_POST["valorReserva"];
+                $numeroDias = $_POST["numeroDias"];
 
-    // Faça o que for necessário com esses valores, como adicionar ao carrinho ou calcular o total
-    // Aqui, por exemplo, apenas exibimos o valor e o número de dias para demonstração
-    echo "<p>Valor da Reserva: R$ $valorReserva</p>";
-    echo "<p>Número de Dias: $numeroDias</p>";
-}
-?>
+                // Faça o que for necessário com esses valores, como adicionar ao carrinho ou calcular o total
+                // Aqui, por exemplo, apenas exibimos o valor e o número de dias para demonstração
+                echo "<p>Valor da Reserva: R$ $valorReserva</p>";
+                echo "<p>Número de Dias: $numeroDias</p>";
+            }
+            ?>
 
-<script>
-    window.onload = function () {
-        carregarCarrinho();
+    <script>
+      window.onload = function() {
+      carregarCarrinho();
     };
-
 
     function carregarCarrinho() {
       const container = document.getElementById('carrinho');
@@ -87,17 +88,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       carregarCarrinho(); // Atualiza a exibição do carrinho para refletir a remoção dos itens
       alert('Compra finalizada!');
     }
-    
     function limparReserva() {
-        const valorReservaElement = document.getElementById('valorReserva');
-        const numeroDiasElement = document.getElementById('numeroDias');
+            const valorReserva = ''; // Limpe o valor da reserva
+            const numeroDias = ''; // Limpe o número de dias
 
-        valorReservaElement.value = ''; // Limpar o valor da reserva
-        numeroDiasElement.value = ''; // Limpar o número de dias
+            // Definir os valores nos campos ocultos do formulário
+            document.getElementById('valorReserva').value = valorReserva;
+            document.getElementById('numeroDias').value = numeroDias;
+
+            alert('Reserva limpa!');
+        }
+    </script>
+
+<input type="hidden" id="valorReserva" name="valorReserva" value="
+    <?php
+        // Verifica se há um valor de reserva e preenche o campo oculto se existir
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valorReserva"])) {
+            echo $_POST["valorReserva"];
+        } else {
+            echo "0.00"; // Se não houver valor de reserva, preenche com 0.00
+        }
+    ?>
+">
+
+<script>
+    // Restante do seu código permanece o mesmo
+    // Certifique-se de manipular o campo oculto de acordo com sua lógica JS
+
+    function limparReserva() {
+        // Limpa o valor da reserva preenchendo o campo oculto com 0.00
+        document.getElementById('valorReserva').value = '0.00';
+        document.getElementById('valorReservaSpan').textContent = '0.00';
 
         alert('Reserva limpa!');
     }
-    </script>
+</script>
 <body>
 
 <?php
