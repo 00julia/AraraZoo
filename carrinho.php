@@ -1,6 +1,4 @@
-<?php
-  include_once("templates/header.php");
-?>
+<?php include_once("templates/header.php"); ?>
 
 <link rel="stylesheet" href="css/carrinho.css">
 <link rel="stylesheet" href="css/carrinhojs.css">
@@ -10,24 +8,38 @@
 <br>
 
 <div class="titulo">
-<title>Carrinho de Compras</title>
+    <title>Carrinho de Compras</title>
     <style>
         /* Estilos CSS permanecem os mesmos */
         /* ... */
     </style>
 </head>
 <body>
-    <h1>Carrinho de Compras</h1>
-    <div id="carrinho">
-        <!-- O carrinho será preenchido dinamicamente -->
-    </div>
-    <p>Total: R$ <span id="total">0.00</span></p>
-    <button class="esvaziar-carrinho" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
 
-    <script>
-      window.onload = function() {
-      carregarCarrinho();
+<h1>Carrinho de Compras</h1>
+<div id="carrinho">
+    <!-- O carrinho será preenchido dinamicamente -->
+</div>
+<p>Total: R$ <span id="total">0.00</span></p>
+<button class="esvaziar-carrinho" onclick="esvaziarCarrinho(); limparReserva()">Esvaziar Carrinho</button>
+<?php
+// Processamento dos valores do formulário
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $valorReserva = $_POST["valorReserva"];
+    $numeroDias = $_POST["numeroDias"];
+
+    // Faça o que for necessário com esses valores, como adicionar ao carrinho ou calcular o total
+    // Aqui, por exemplo, apenas exibimos o valor e o número de dias para demonstração
+    echo "<p>Valor da Reserva: R$ $valorReserva</p>";
+    echo "<p>Número de Dias: $numeroDias</p>";
+}
+?>
+
+<script>
+    window.onload = function () {
+        carregarCarrinho();
     };
+
 
     function carregarCarrinho() {
       const container = document.getElementById('carrinho');
@@ -74,6 +86,16 @@
       localStorage.removeItem('carrinho'); // Limpa o carrinho removendo o item 'carrinho' do localStorage
       carregarCarrinho(); // Atualiza a exibição do carrinho para refletir a remoção dos itens
       alert('Compra finalizada!');
+    }
+    
+    function limparReserva() {
+        const valorReservaElement = document.getElementById('valorReserva');
+        const numeroDiasElement = document.getElementById('numeroDias');
+
+        valorReservaElement.value = ''; // Limpar o valor da reserva
+        numeroDiasElement.value = ''; // Limpar o número de dias
+
+        alert('Reserva limpa!');
     }
     </script>
 <body>
