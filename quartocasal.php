@@ -14,7 +14,7 @@
     </div>
 </div>
 <br> <br> <br> <br> 
-<form method="post" action="carrinho.php">
+<form method="post" action="display_reservation.php">
     <div class="quartocasalinput">
         <div>
             <h2> CHECK-IN:</h2>

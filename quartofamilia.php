@@ -14,7 +14,7 @@
     <img src="imgs/pacotefamilia.png" class="fotodoprecodoquarto">
   </div>
   <br> <br> <br> <br> 
-  <form method="post" action="carrinho.php"> <!-- Alterado o action para a página do carrinho -->
+  <form method="post" action="displayreservation.php">
     <div class="quartocasalinput">
       <div>
         <h2> CHECK-IN:</h2>
