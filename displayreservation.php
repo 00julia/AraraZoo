@@ -40,15 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "</div>";
 
-    //  botão "Continuar" para redirecionar pra carrinho.php
+    // Botão "Continuar para o Carrinho" para redirecionar para carrinho.php
     echo "<form method='post' action='carrinho.php'>";
     echo "<input type='hidden' name='checkIn' value='$checkIn'>";
     echo "<input type='hidden' name='checkOut' value='$checkOut'>";
     echo "<input type='hidden' name='pacote' value='$pacote'>";
     echo "<input type='hidden' name='dailyRate' value='$dailyRate'>";
-    echo "<input type='hidden' name='numberOfDays' value='$numberOfDays'>";
+    echo "<form method='post' action='carrinho.php'>";
     echo "<input type='hidden' name='preco' value='$preco'>";
-    echo "<button type='submit'>Continuar</button>";
+    echo "<button type='submit'>Continuar para o Carrinho</button>";
     echo "</form>";
 
 } else {

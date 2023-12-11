@@ -1,5 +1,13 @@
 <?php
-  include_once("templates/header.php");
+session_start();
+include_once("templates/header.php");
+
+// Definindo o valor padrão para a reserva
+if (isset($_POST['preco'])) {
+    $_SESSION['valorReserva'] = $_POST['preco'];
+} else if (!isset($_SESSION['valorReserva'])) {
+    $_SESSION['valorReserva'] = "0.00";
+}
 ?>
 
 <link rel="stylesheet" href="css/carrinho.css">
@@ -10,7 +18,7 @@
 <br>
 
 <div class="titulo">
-<title>Carrinho de Compras</title>
+    <title>Carrinho de Compras</title>
     <style>
         /* Estilos CSS permanecem os mesmos */
         /* ... */
@@ -18,117 +26,78 @@
 </head>
 <body>
 
-    <h1>Carrinho de Compras</h1>
-    <div id="carrinho">
-        <!-- O carrinho será preenchido dinamicamente -->
-    </div>
-    <p>Total: R$ <span id="total">0.00</span></p>
-    <button class="esvaziar-carrinho" onclick="esvaziarCarrinho();limparReserva()">Esvaziar Carrinho</button>
-    <?php
-            // Processamento dos valores do formulário
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $valorReserva = $_POST["valorReserva"];
-                $numeroDias = $_POST["numeroDias"];
+<h1>Carrinho de Compras</h1>
+<div id="carrinho">
+    <!-- O carrinho será preenchido dinamicamente -->
+</div>
+<p>Total: R$ <span id="total">0.00</span></p>
 
-                // Faça o que for necessário com esses valores, como adicionar ao carrinho ou calcular o total
-                // Aqui, por exemplo, apenas exibimos o valor e o número de dias para demonstração
-                echo "<p>Valor da Reserva: R$ $valorReserva</p>";
-                echo "<p>Número de Dias: $numeroDias</p>";
-            }
-            ?>
-
-    <script>
-      window.onload = function() {
-      carregarCarrinho();
+<!-- Exibição do valor da reserva -->
+<?php if (isset($_POST['finalizarCompra'])) : ?>
+    <p>Valor da Reserva: R$ 0.00</p>
+<?php else : ?>
+    <p>Valor da Reserva: R$ <?php echo number_format((float)$_SESSION['valorReserva'], 2, ',', '.'); ?></p>
+<?php endif; ?>
+<!-- Exibição do valor total (produtos + reserva) -->
+<p>Total Geral: R$ <span id="totalGeral">0.00</span></p>
+<button class="esvaziar-carrinho" onclick="esvaziarCarrinho();limparReserva()">Esvaziar Carrinho</button>
+<script>
+    window.onload = function() {
+        carregarCarrinho();
     };
 
     function carregarCarrinho() {
-      const container = document.getElementById('carrinho');
-      container.innerHTML = '';
+        const container = document.getElementById('carrinho');
+        container.innerHTML = '';
 
-      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      let total = 0;
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        let total = 0;
 
-      if (carrinho.length === 0) {
-        container.innerHTML = '<p>Carrinho vazio</p>';
-      } else {
-        carrinho.forEach((item, index) => {
-          const div = document.createElement('div');
-          div.classList.add('produto');
-          div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
+        if (carrinho.length === 0) {
+            container.innerHTML = '<p>Carrinho vazio</p>';
+        } else {
+            carrinho.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.classList.add('produto');
+                div.innerHTML = `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>
                             <button class="remover-carrinho" onclick="removerProduto(${index})">Remover do Carrinho</button>`;
-          container.appendChild(div);
-          total += item.preco;
-        });
-      }
+                container.appendChild(div);
+                total += item.preco;
+            });
+        }
 
-      const totalElement = document.getElementById('total');
-      totalElement.textContent = total.toFixed(2);
+        const totalElement = document.getElementById('total');
+        totalElement.textContent = total.toFixed(2);
     }
 
     function esvaziarCarrinho() {
-      localStorage.removeItem('carrinho');
-      carregarCarrinho();
-      alert('Carrinho esvaziado!');
+        localStorage.removeItem('carrinho');
+        carregarCarrinho();
+        alert('Carrinho esvaziado!');
     }
 
     function removerProduto(index) {
-      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      
-      if (index >= 0 && index < carrinho.length) {
-        carrinho.splice(index, 1);
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        carregarCarrinho();
-        alert('Produto removido do carrinho!');
-      }
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        if (index >= 0 && index < carrinho.length) {
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            carregarCarrinho();
+            alert('Produto removido do carrinho!');
+        }
     }
 
     function finalizarCompra() {
-      localStorage.removeItem('carrinho'); // Limpa o carrinho removendo o item 'carrinho' do localStorage
-      carregarCarrinho(); // Atualiza a exibição do carrinho para refletir a remoção dos itens
-      alert('Compra finalizada!');
-    }
-    function limparReserva() {
-            const valorReserva = ''; // Limpe o valor da reserva
-            const numeroDias = ''; // Limpe o número de dias
-
-            // Definir os valores nos campos ocultos do formulário
-            document.getElementById('valorReserva').value = valorReserva;
-            document.getElementById('numeroDias').value = numeroDias;
-
-            alert('Reserva limpa!');
-        }
-    </script>
-
-<input type="hidden" id="valorReserva" name="valorReserva" value="
-    <?php
-        // Verifica se há um valor de reserva e preenche o campo oculto se existir
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["valorReserva"])) {
-            echo $_POST["valorReserva"];
-        } else {
-            echo "0.00"; // Se não houver valor de reserva, preenche com 0.00
-        }
-    ?>
-">
-
-<script>
-    // Restante do seu código permanece o mesmo
-    // Certifique-se de manipular o campo oculto de acordo com sua lógica JS
-
-    function limparReserva() {
-        // Limpa o valor da reserva preenchendo o campo oculto com 0.00
-        document.getElementById('valorReserva').value = '0.00';
-        document.getElementById('valorReservaSpan').textContent = '0.00';
-
-        alert('Reserva limpa!');
+        localStorage.removeItem('carrinho'); // Limpa o carrinho removendo o item 'carrinho' do localStorage
+        carregarCarrinho(); // Atualiza a exibição do carrinho para refletir a remoção dos itens
+        alert('Compra finalizada!');
     }
 </script>
 <body>
 
 <?php
-
-function getCardBrand($cardNumber) {
-    
+function getCardBrand($cardNumber)
+{
     return 'visa';
 }
 
@@ -138,45 +107,46 @@ $cardNamePlaceholder = 'John Doe';
 $cardValidPlaceholder = '12/23';
 ?>
 
-<form class="forms">
-  <div style="display: flex; justify-content: space-between;">
-    <div>
-      <h2> Nome no cartão:</h2>
-      <input type="text" name="card_name" id="cardNameInput" class="forms1"> <br> 
-      <h2> Número do cartão: </h2>
-      <input type="text" name="card_number" id="cardNumberInput" class="forms1"><br>
-      <h2>Parcela: </h2>
-      <select name="card_parcel" id="cardParcelInput" class="forms1">
-        <?php for ($i = 1; $i <= 6; $i++): ?>
-          <option value="<?php echo $i; ?>"><?php echo $i; ?>x sem juros</option>
-        <?php endfor; ?>
-      </select><br>
+<form class="forms" method="post">
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <h2> Nome no cartão:</h2>
+            <input type="text" name="card_name" id="cardNameInput" class="forms1"> <br>
+            <h2> Número do cartão: </h2>
+            <input type="text" name="card_number" id="cardNumberInput" class="forms1"><br>
+            <h2>Parcela: </h2>
+            <select name="card_parcel" id="cardParcelInput" class="forms1">
+                <?php for ($i = 1; $i <= 6; $i++) : ?>
+                    <option value="<?php echo $i; ?>"><?php echo $i; ?>x sem juros</option>
+                <?php endfor; ?>
+            </select><br>
+        </div>
+
+
+        <div>
+            <h2> Data de validade: </h2>
+            <input type="text" name="card_valid" id="cardValidInput" class="forms1"><br>
+            <h2> CVC: </h2>
+            <input type="text" name="card_code" id="cardCodeInput" class="forms1"><br>
+        </div>
     </div>
-       
-   
-    <div>
-     <h2> Data de validade: </h2>
-     <input type="text" name="card_valid" id="cardValidInput" class="forms1"><br>
-      <h2> CVC: </h2>
-       <input type="text" name="card_code" id="cardCodeInput" class="forms1"><br>
+
+    <?php
+    $cardBrand = getCardBrand($cardNumberPlaceholder);
+    ?>
+
+    <div class="live-update card" id="liveUpdateCard">
+        <img class="card-brand" src="path/to/<?php echo $cardBrand; ?>.png" alt="Card Brand">
+        <div class="card-number"><?php echo $cardNumberPlaceholder; ?></div>
+        <div class="card-name"><?php echo $cardNamePlaceholder; ?></div>
+        <div class="card-valid">Validade: <?php echo $cardValidPlaceholder; ?></div>
     </div>
-  </div>
 
-<?php
-
-$cardBrand = getCardBrand($cardNumberPlaceholder);
-?>
-
-<div class="live-update card" id="liveUpdateCard">
-  <img class="card-brand" src="path/to/<?php echo $cardBrand; ?>.png" alt="Card Brand">
-  <div class="card-number"><?php echo $cardNumberPlaceholder; ?></div>
-  <div class="card-name"><?php echo $cardNamePlaceholder; ?></div>
-  <div class="card-valid">Validade: <?php echo $cardValidPlaceholder; ?></div>
-</div>
-
-<!-- <button type="button" href="obrigadaArara">Finalizar Compra</button> -->
-
-<button type="button" onclick="finalizarCompra(); location.href='obrigadaArara.php'">Finalizar Compra</button>
+        <!-- Botão "Finalizar Compra" -->
+        <!-- Botão "Finalizar Compra" -->
+        <input type="hidden" name="preco" value="<?php echo $_SESSION['valorReserva']; ?>">
+    <button type="submit" name="finalizarCompra" onclick="window.location.href='obrigadaArara.php';">Finalizar Compra</button>
+</form>
   </form>
 </form>
 <br> <br>
