@@ -15,15 +15,15 @@
   </div>
   <br> <br> <br> <br> 
   <form method="post" action="displayreservation.php">
-    <div class="quartocasalinput">
-      <div>
-        <h2> CHECK-IN:</h2>
-        <input type="date" name="checkin" id="checkin" class="reservas"> <br> <!-- Adicionado id="checkin" -->
-      </div>
-      <div>
-        <h2> CHECK-OUT:</h2>
-        <input type="date" name="checkout" id="checkout" class="reservas"> <br> <!-- Adicionado id="checkout" -->
-      </div>
+  <div class="quartocasalinput">
+    <div>
+    <h2> CHECK-IN:</h2>
+    <input type="date" name="check-in" class="reservas"> <br>
+</div>
+<div>
+    <h2> CHECK-OUT:</h2>
+    <input type="date" name="checkout" class="reservas"> <br>
+</div>
       <div>
         <h2> PACOTE:</h2>
         <select id="reserva" name="pacote" style="height: 25px; width: 175px; border-radius: 15px; text-align: center; border: none;">
@@ -33,7 +33,7 @@
       </div>
       <input type="hidden" id="valorReserva" name="valorReserva"> <!-- Campo oculto para o valor da reserva -->
       <input type="hidden" id="numeroDias" name="numeroDias"> <!-- Campo oculto para o número de dias -->
-      <button type="button" id="reservarButton" onclick="calcularValoresERedirecionar()">RESERVAR</button> <!-- Alterado de "submit" para "button" -->
+      <button type="submit" id="reservarButton">RESERVAR</button>
     </div>
   </form>
 </div>
