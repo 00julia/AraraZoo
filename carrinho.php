@@ -107,7 +107,7 @@ $cardNamePlaceholder = 'John Doe';
 $cardValidPlaceholder = '12/23';
 ?>
 
-<form class="forms" method="post">
+<form class="forms" method="post" action="obrigadaArara.php">
     <div style="display: flex; justify-content: space-between;">
         <div>
             <h2> Nome no cartão:</h2>
