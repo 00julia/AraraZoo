@@ -6,7 +6,17 @@ session_start();
 include_once("templates/header.php"); 
 ?>
 <link rel="stylesheet" href="css/login.css">
-
+<style>
+    .notification {
+    background: red;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
 
 
     <?php

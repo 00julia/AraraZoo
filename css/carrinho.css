@@ -3,6 +3,7 @@
   padding: 0;
 }
 .card {
+  margin: 0 auto; 
     box-sizing: border-box;
     width: 300px;
     height: 180px;
@@ -64,10 +65,10 @@
     
   }
   .forms{
-    margin-left: 150px;
+    margin: 0 auto; /* Center the form horizontally */
       top: 200px;
       width: 1000px;
-      margin-top: 300px;
+      margin-top: 200px;
    
   
   }
