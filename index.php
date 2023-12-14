@@ -10,7 +10,7 @@
 </div> -->
 <div class="planodefundo">
   <img src="imgs/ararazoobranca.png" class="logosemfundo">
-  <video autoplay loop muted plays-inline class="back-video">
+  <video autoplay loop muted plays-inline class="back-vide0">
     <source src="imgs/videoarara.mp4" type="video/mp4">
   </video>
 </div>
@@ -112,7 +112,6 @@
     <button class="adicionar-carrinho" onclick="adicionarProduto('ingresso inteiro', 90.00)"></button>
 
     <button class="adicionar-carrinho1" onclick="adicionarProduto('ingresso estudante', 45.00)"></button>
-
     <script>
   
 
