@@ -39,7 +39,7 @@ if (isset($_POST['preco'])) {
     <p>Valor da Reserva: R$ <?php echo number_format((float)$_SESSION['valorReserva'], 2, ',', '.'); ?></p>
 <?php endif; ?>
 <!-- Exibição do valor total (produtos + reserva) -->
-<p>Total Geral: R$ <span id="totalGeral">0.00</span></p>
+<!-- <p>Total Geral: R$ <span id="totalGeral">0.00</span></p> -->
 <button class="esvaziar-carrinho" onclick="esvaziarCarrinho();limparReserva()">Esvaziar Carrinho</button>
 <script>
     window.onload = function() {
