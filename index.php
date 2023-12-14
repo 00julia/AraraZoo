@@ -9,7 +9,7 @@
   <img src="imgs/logosemfundo.png" class="logosemfundo">
 </div> -->
 <div class="planodefundo">
-  <img src="imgs/logosemfundo.png" class="logosemfundo">
+  <img src="imgs/ararazoobranca.png" class="logosemfundo">
   <video autoplay loop muted plays-inline class="back-video">
     <source src="imgs/videoarara.mp4" type="video/mp4">
   </video>
@@ -82,7 +82,7 @@
         /* Estilos para o botão */
         .adicionar-carrinho {
             position: absolute;
-            top: 1890px;
+            top: 2330px;
             left: 190px;
             height: 290px;
             width:260px;
@@ -95,8 +95,8 @@
 
         .adicionar-carrinho1{
             position: absolute;
-            top: 1890px;
-            left: 820px;
+            top: 2330px;
+            left: 800px;
             height: 290px;
             width:260px;
             background-color: transparent;

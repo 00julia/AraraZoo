@@ -15,7 +15,7 @@
       <p>Todos os direitos reservados ℗</p>
     </div>
     <div class="coluna2">
-      <p>Telefone: 99999-9999 </p>
+      <p>Telefone: 2867-5309 </p>
       <p>Curitiba, PR Av. Pedro Euzébio Lemos</p>
     </div>
 </footer>
