@@ -1,6 +1,7 @@
 
 <?php
 include_once("templates/header.php");
+include_once("conexao.php");
 
 ?>
 
@@ -30,29 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     // Inserir dados no banco de dados
-    define('HOST', '127.0.0.1');
-    define('USUARIO', 'root');
-    define('SENHA', '');
-    define('DB', 'login');
-
-    
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
-
-    if ($conexao->connect_error) {
-        die("Conexão falhou: " . $conexao->connect_error);
-    }
-
     $sql = "INSERT INTO reservas (checkIn, checkOut, pacote, dailyRate, numberOfDays, preço)
             VALUES ('$checkIn', '$checkOut', '$pacote', '$dailyRate', '$numberOfDays', '$preco')";
 
-    if ($conexao->query($sql) === TRUE) {
-        echo "";
-    } else {
-        echo "" . $conexao->error;
+    if (@mysqli_query($conexao, $sql)) {
+        // Inserção bem-sucedida
+       
     }
-
-    $conexao->close();
-
     
 
     // Exibir detalhes da reserva
