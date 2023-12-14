@@ -18,15 +18,14 @@ if (isset($_POST['preco'])) {
 <br>
 
 <div class="titulo">
-    <title>Carrinho de Compras</title>
+             <center>   <img src="imgs/carrinho.jpg" width="450px" /> </center>
+            </div>
     <style>
-        /* Estilos CSS permanecem os mesmos */
-        /* ... */
+  
     </style>
 </head>
 <body>
 
-<h1>Carrinho de Compras</h1>
 <div id="carrinho">
     <!-- O carrinho será preenchido dinamicamente -->
 </div>
@@ -36,7 +35,7 @@ if (isset($_POST['preco'])) {
 <?php if (isset($_POST['finalizarCompra'])) : ?>
     <p>Valor da Reserva: R$ 0.00</p>
 <?php else : ?>
-    <p>Valor da Reserva: R$ <?php echo number_format((float)$_SESSION['valorReserva'], 2, ',', '.'); ?></p>
+    <p> Valor da Reserva: R$ <span id="valorReserva"> <?php echo number_format((float)$_SESSION['valorReserva'], 2, ',', '.'); ?> </p>
 <?php endif; ?>
 <!-- Exibição do valor total (produtos + reserva) -->
 <!-- <p>Total Geral: R$ <span id="totalGeral">0.00</span></p> -->
@@ -74,6 +73,7 @@ if (isset($_POST['preco'])) {
         localStorage.removeItem('carrinho');
         carregarCarrinho();
         alert('Carrinho esvaziado!');
+        
     }
 
     function removerProduto(index) {

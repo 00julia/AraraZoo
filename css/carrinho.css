@@ -98,3 +98,46 @@
     font-family:'Jura', sans-serif;
     border: none;
 }
+
+.titulo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  color: #2E57C0; /* Azul */
+}
+
+#carrinho {
+  margin-top: 20px;
+}
+
+.produto {
+  border-bottom: 1px solid #ddd; /* Linha divisória entre produtos */
+  padding: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#total {
+  color: #2E57C0; /* Azul */
+  font-weight: bold;
+}
+
+.esvaziar-carrinho {
+  background-color: #2E57C0; /* Azul */
+  color: #fff; /* Texto branco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#valorReserva{
+  color: #2E57C0; /* Azul */
+  font-weight: bold;
+}
