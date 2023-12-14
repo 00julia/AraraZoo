@@ -34,9 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO reservas (checkIn, checkOut, pacote, dailyRate, numberOfDays, preço)
             VALUES ('$checkIn', '$checkOut', '$pacote', '$dailyRate', '$numberOfDays', '$preco')";
 
-    if (@mysqli_query($conexao, $sql)) {
-        // Inserção bem-sucedida
-       
+    if ($conexao->query($sql) === TRUE) {
+        echo "";
+    } else {
+        echo "" . $conexao->error;
     }
     
 
